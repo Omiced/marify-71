@@ -2,6 +2,8 @@ package org.generation.marify.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 //primero indicamos que esta clase es una entidad
 @Entity
 public class Artist {
@@ -23,14 +25,18 @@ public class Artist {
     @Column(name = "origin_country")
     private String originCountry;
 
+    @OneToMany(mappedBy = "artist", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Album> albums;
+
     public Artist() {
     }
 
-    public Artist(Long id, String name, String genere, String originCountry) {
+    public Artist(Long id, String name, String genere, String originCountry, List<Album> albums) {
         this.id = id;
         this.name = name;
         this.genere = genere;
         this.originCountry = originCountry;
+        this.albums =albums;
     }
 
     public Long getId() {
@@ -63,5 +69,13 @@ public class Artist {
 
     public void setOriginCountry(String originCountry) {
         this.originCountry = originCountry;
+    }
+
+    public List<Album> getAlbums() {
+        return albums;
+    }
+
+    public void setAlbums(List<Album> albums) {
+        this.albums = albums;
     }
 }
