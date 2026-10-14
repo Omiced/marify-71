@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30,4 +32,8 @@ public class Tracks {
     @JoinColumn(name = "album_id", nullable = false)
     @JsonIgnore
     private Album album;
+
+    @ManyToMany(mappedBy = "tracks")
+    @JsonIgnore
+    private Set<Playlist> playlists;
 }
