@@ -14,6 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "/api")
 @AllArgsConstructor
+@CrossOrigin(origins = "*")
 public class AlbumController {
     private final AlbumService albumService;
 

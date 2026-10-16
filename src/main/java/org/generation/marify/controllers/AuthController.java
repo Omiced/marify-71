@@ -7,14 +7,12 @@ import org.generation.marify.dtos.RegisterRequest;
 import org.generation.marify.dtos.ResponseRequest;
 import org.generation.marify.services.AuthService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path="/api/auth")
 @AllArgsConstructor
+@CrossOrigin(origins = "*")
 public class AuthController {
     private AuthService authService;
 

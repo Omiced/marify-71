@@ -19,6 +19,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping(path = "/api/artist") // http://localhost:8080/api/artist
+@CrossOrigin(origins = "*")
 public class ArtistController {
     private final ArtistService artistService;
 
